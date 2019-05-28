@@ -4,22 +4,63 @@
         <meta charset = "UTF-8">
         <meta name="viewport" content="width = device-width, intial-scale=1.0">
         <title> My First Assignment</title>
-        <style>
-            #h11{
+            <style>
+            body{
                 text-align:center;
+                background-image:url('https://cdn.pixabay.com/photo/2017/03/02/08/58/background-texture-2110724_960_720.jpg');
             }
-            #div1{
-                text-align:center;
+            #web1:hover{
+                background-color:chartreuse;
             }
+            #ref:hover{
+                background-color:red;
+            }
+            #web:hover{
+                background-color:rgb(0, 255, 221);
+            }
+        </style>
         </style>
 
     </head>
     <body>
-        <h1 id ="h11">My First Sub Window</h1>
+        <h1 id ="h11">My First Sub-Window</h1>
         <div id="div1">
                 <iframe src="https://www.google.com/webhp?igu=1" id = "frame" height="200px" width="300px" ></iframe>
 
         </div>
+        <form>
+                
+                <div id = "div1">
+                    Enter URL<input type = "url" name = "web" id ="web">
+                    <input type = "button"  value = "GO" name ="web1" id="web1" onclick = "display() "> 
+                    <input type ="button" value="Refresh" name="ref" id = "ref" onclick ="refresh()">
+                    <br>
+                    Width<input type = "text" name ="wid" id = "wid" >
+                    height<input type = "text"  name ="hei" id = "hei">
+                    <input type = "button"  value = "Resize" name ="rez1" id = "rez1" onclick = "resize()">
+                </div>
+            </form>
         
     </body>
+<script>
+            function display(){
+                var x = document.getElementById("web").value;
+                var y = document.getElementById("frame");
+                y.setAttribute("src", x);
+            }
+            function refresh(){
+                var x = document.getElementById("web").value = "";
+                var y = document.getElementById("frame");
+                y.setAttribute("src", x); 
+                
+            }
+            function resize(){
+                var x = document.getElementById("wid").value;
+                var y = document.getElementById("hei").value;
+                var frame1 = document.getElementById("frame");
+                frame1.setAttribute("width",x);
+                frame1.setAttribute("height",y)
+    
+            }
+        </script>
 </html>
