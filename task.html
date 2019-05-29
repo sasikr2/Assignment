@@ -18,7 +18,16 @@
             #web:hover{
                 background-color:rgb(0, 255, 221);
             }
-        </style>
+            #wid:hover{
+                background-color:floralwhite;
+
+            }
+            #hei:hover{
+                background-color:floralwhite;
+            }
+            #rez1:hover{
+                background-color:rgba(217, 255, 0, 0.322);
+            }
         </style>
 
     </head>
@@ -31,12 +40,12 @@
         <form>
                 
                 <div id = "div1">
-                    Enter URL<input type = "url" name = "web" id ="web">
+                    Enter URL<input type = "text" name = "web" id ="web">
                     <input type = "button"  value = "GO" name ="web1" id="web1" onclick = "display() "> 
                     <input type ="button" value="Refresh" name="ref" id = "ref" onclick ="refresh()">
                     <br>
                     Width<input type = "text" name ="wid" id = "wid" >
-                    height<input type = "text"  name ="hei" id = "hei">
+                    Height<input type = "text"  name ="hei" id = "hei">
                     <input type = "button"  value = "Resize" name ="rez1" id = "rez1" onclick = "resize()">
                 </div>
             </form>
@@ -46,12 +55,17 @@
             function display(){
                 var x = document.getElementById("web").value;
                 var y = document.getElementById("frame");
-                y.setAttribute("src", x);
+                if(x === ""){
+                    y.setAttribute("src", "https://www.google.com/webhp?igu=1");
+                }
+                else{
+                    y.setAttribute("src", x);
+                }
             }
             function refresh(){
                 var x = document.getElementById("web").value = "";
                 var y = document.getElementById("frame");
-                y.setAttribute("src", x); 
+                y.setAttribute("src","https://www.google.com/webhp?igu=1"); 
                 
             }
             function resize(){
